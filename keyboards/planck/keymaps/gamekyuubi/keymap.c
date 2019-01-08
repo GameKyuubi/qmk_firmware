@@ -43,25 +43,26 @@ enum planck_keycodes {
 #define LOWER MO(_LOWER)
 #define RAISE MO(_RAISE)
 #define NUMPAD MO(_NUMPAD)
+#define SYSREQ MO(_SYSREQ)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* Numpad
  * ,-----------------------------------------------------------------------------------.
- * | Tab  |PrtScr|      |      |      |      |      | Num  |   7  |   8  |   9  |  -   |
+ * | Tab  |PrtScr|  mUp | mBtn1| mWhUp| mBtn2|      | Num  |   7  |   8  |   9  |  -   |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
- * | Esc  |      |      |      |      |      |      |      |   4  |   5  |   6  |  +   |
+ * | Esc  | mLeft| mDown|mRight| mWhDn|      |      |      |   4  |   5  |   6  |  +   |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
- * | Shift|      |      |      |      |      |      |      |   1  |   2  |   3  |Enter |
+ * | Shift| mAcc0| mAcc1| mAcc2|      |      |      |      |   1  |   2  |   3  |Enter |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |Numpad| Ctrl | Alt  | GUI  |Lower |    Space    |Raise |   0  |   /  |   .  |  *   |
  * `-----------------------------------------------------------------------------------'
  */
 [_NUMPAD] = LAYOUT_planck_grid(
-    KC_TAB,  KC_PSCR, _______, _______, _______, _______, KC_LNUM, KC_P7,  KC_P8,   KC_P9,   KC_PMNS,  KC_BSPC,
-    KC_ESC,  _______, _______, _______, _______, _______, _______, KC_P4,  KC_P5,   KC_P6,   KC_PPLS,  _______,
-    KC_LSFT, _______, _______, _______, _______, _______, _______, KC_P1,  KC_P2,   KC_P3,   KC_PENT,  _______,
-    NUMPAD,  KC_LCTL, KC_LGUI, KC_LALT,   LOWER, KC_SPC,  KC_SPC,   KC_P0,  KC_PSLS, KC_PDOT, KC_PAST, _______
+    KC_TAB,  KC_PSCR,    KC_MS_UP,   KC_BTN1,     KC_WH_U, KC_BTN2, KC_LNUM, KC_P7,  KC_P8,   KC_P9,   KC_PMNS,  KC_BSPC,
+    KC_ESC,  KC_MS_LEFT, KC_MS_DOWN, KC_MS_RIGHT, KC_WH_D, _______, _______, KC_P4,  KC_P5,   KC_P6,   KC_PPLS,  _______,
+    KC_LSFT, KC_ACL0,    KC_ACL1,    KC_ACL2,     _______, _______, _______, KC_P1,  KC_P2,   KC_P3,   KC_PENT,  _______,
+    NUMPAD,  KC_LCTL,    KC_LGUI,    KC_LALT,     LOWER,   KC_SPC,  KC_SPC,   KC_P0,  KC_PSLS, KC_PDOT, KC_PAST, _______
 ),
 
 /* Qwerty
@@ -72,7 +73,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|------+------+------+------+------+------|
  * | Shift|   Z  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |   /  |Enter |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |Numpad| Ctrl | Alt  | GUI  |Lower |    Space    |Raise | Left | Down |  Up  |Right |
+ * |SysReq| Ctrl | Alt  | GUI  |Lower |    Space    |Raise | Left | Down |  Up  |Right |
  * `-----------------------------------------------------------------------------------'
  */
 [_QWERTY] = LAYOUT_planck_grid(
